@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3@0.20.5/dist/web3.min.js"></script>
+
+    <script src="Assignment.js"></script>
+    <link rel="stylesheet" href="Assignment.css">
+</head>
+<div class="header">
+    <a href="#default" class="logo">Create Your Will!</a>
+    <div class="header-right">
+      <a class="active" href="fulldisplay.html">Wills</a>
+      <a href="transfer.html">Edit Wills</a>
+      <a href="frontpage.html">Log Out</a>
+    </div>
+  </div>
+
+<body>
+    <div class ="box2">
+    <div id="willRegList">
+        <h1>Wills</h1>
+        <hr /><br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Will Code</th>
+                    <th scope="col">Testator NRIC</th>
+                    <th scope="col">Testator Name</th>
+                    <th scope="col">Testator Address</th>
+                    <th scope="col">Inheritance Name</th>
+                    <th scope="col">Inheritance NRIC</th>
+                    <th scope="col">Asset List</th>
+                    <th scope="col">Executor</th>
+                </tr>
+            </thead>
+            <tbody id="willListResults"></tbody>
+        </table>
+        <br />
+        <span id="message"></span>
+        <hr />
+    </div>
+</div>
+</body>
+
+</html>

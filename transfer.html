@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3@0.20.5/dist/web3.min.js"></script>
+
+    <script src="Assignment.js"></script>
+    <link rel="stylesheet" href="Assignment.css">
+</head>
+<div class="header">
+    <a href="#default" class="logo">Create Your Will!</a>
+    <div class="header-right">
+        <a href="fulldisplay.html">Wills</a>
+        <a class="active" href="transfer.html">Edit Wills</a>
+        <a href="frontpage.html">Log Out</a>
+    </div>
+</div>
+
+<body>
+    <div class="box">
+        <h1>Last Will and Testaments</h1>
+        <div class="input-group">
+            <h3>Will Code</h3>
+            <p><input type="text" id="txfWillCode"></p>
+        </div>
+        <div id="after">
+            <div class="input-group">
+                <h3>Declaration</h3>
+                <p>I, <input type="text" id="txftestatorName" placeholder="Full Name">, (<input type="text" id="txftestatorNRIC" placeholder="NRIC">), an adult
+                    residing in <input type="text" id="txftestatorAddress" placeholder="Address">, being of sound mind, declare this
+                    to be my Last Will and Testament. I revoke all wills and codicils previously made by me.</p>
+            </div>
+            <h2>ARTICLE I</h2>
+            <div class="input-group">
+                <p>I appoint <input list="listnewexecutorName" id="txfexecutorName">
+                    <datalist id="listnewexecutorName" name="executornames" size="3">
+                        <option value="Shankari">Shankari</option>
+                        <option value="Zhujing">Zhujing</option>
+                        <option value="Jamie">Jamie</option>
+                        <option value="Kingsley">Kingsley</option>
+                        <option value="Weiboon">Weiboon</option>
+                        <option value="Darrius">Darrius</option>
+                    </datalist> as my Personal Representative to administer this
+                    Will,
+                    and ask that he/she be permitted to serve without Court supervision and without posting bond.
+                </p>
+            </div>
+            <h2>ARTICLE II</h2>
+            <div class="input-group">
+                <h3>Testator's Names</h3>
+                <input type="text" id="txftestatorInheritNames" placeholder="Inheritant Name" />
+            </div>
+            <div class="input-group">
+                <h3>Testator's NRICs</h3>
+                <input type="text" id="txftestatorInheritNRIC" placeholder="Inheritant NRIC" />
+            </div>
+            <div class="input-group">
+                <h3>Asset List</h3>
+                <input type="text" id="txfassetList" placeholder="Asset" />
+                <div class="input-group">
+                    <br>
+                    <button class="btn" id="button-transfer">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

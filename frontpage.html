@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3@0.20.5/dist/web3.min.js"></script>
+
+    <script src="Assignment.js"></script>
+    <link rel="stylesheet" href="Assignment.css">
+</head>
+
+<body class="flex w-screen h-screen justify-center items-center">
+    <div class="ourLogo">
+        <h1 style="font-size:100px; color:rgb(73, 67, 67); margin:10px;">Welcome to EINEG Law Services!</h1>
+    </div>
+    <button id='loginButton' onclick="" class="loginbutton">
+        Login with MetaMask
+    </button>
+    <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+    </div>
+
+    <script>
+        window.userWalletAddress = null
+        const loginButton = document.getElementById('loginButton')
+        const userWallet = document.getElementById('userWallet')
+
+        function toggleButton() {
+            if (!window.ethereum) {
+                loginButton.innerText = 'MetaMask is not installed'
+                loginButton.classList.remove('bg-purple-500', 'text-white')
+                loginButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
+                return false
+            }
+
+            loginButton.addEventListener('click', loginWithMetaMask)
+            // loginButton.addEventListener('click', display)
+        }
+
+        async function loginWithMetaMask() {
+            const executors = [0x7D0aBB9d36CEAA851c645D3134772FEe1E4039f7]
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+                .catch((e) => {
+                    console.error(e.message)
+                    return
+                })
+            if (!accounts) { return }
+
+            window.userWalletAddress = accounts[0]
+            userWallet.innerText = window.userWalletAddress
+            // loginButton.innerText = 'Sign out of MetaMask'
+            for (var i = 0; i < executors.length; i++) {
+                if (window.userWalletAddress == executors[i]) {
+                    setTimeout(() => {
+                        window.location.href = 'fulldisplay.html';
+                    }, 800)
+                }
+                else {
+                    setTimeout(() => {
+                        window.location.href = 'Assignment.html';
+                    }, 800)
+                }
+            }
+            loginButton.removeEventListener('click', loginWithMetaMask)
+            setTimeout(() => {
+                loginButton.addEventListener('click', signOutOfMetaMask)
+            }, 200)
+        }
+
+        function signOutOfMetaMask() {
+            window.userWalletAddress = null
+            userWallet.innerText = ''
+            loginButton.innerText = 'Login with MetaMask'
+
+            loginButton.removeEventListener('click', signOutOfMetaMask)
+            setTimeout(() => {
+                loginButton.addEventListener('click', loginWithMetaMask)
+            }, 200)
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            toggleButton()
+        });
+
+    </script>
+</body>
+
+
+
+</html>
